@@ -1,21 +1,18 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import Tab from "../Tab/Tab";
-import {CHANGE_CURRENT_PAGE, CHANGE_TIMER_FIRST_START, FOUR, SIX, START, TWO} from "../../store/constants/gameInfo";
+import {FOUR, SIX, START, TWO} from "../../store/constants/gameInfo";
 import TabButton from "../Tab/TabButton";
+import {changeCurrentPage, timeFirstStart} from "../../store/actions/game";
 
 const Records = () => {
     const dispatch = useDispatch();
     const [activeTab, setActiveTab] = useState(TWO);
     const records = useSelector(state => state.game.records);
 
-    const changeTimerFirstStart = (isFirst) => {
-        dispatch({type: CHANGE_TIMER_FIRST_START, payload: isFirst})
-    }
+    const changeTimerFirstStart = isFirst => dispatch(timeFirstStart(isFirst));
 
-    const onChangeValue = (event) => {
-        setActiveTab(event.target.value);
-    }
+    const onChangeValue = event => setActiveTab(event.target.value);
 
     const sizeFilter = (size) => {
         return records.filter(record => record.boardSize === size);
@@ -23,7 +20,7 @@ const Records = () => {
 
     const toStartHandler = () => {
         changeTimerFirstStart(true);
-        dispatch({type: CHANGE_CURRENT_PAGE, payload: START})
+        dispatch(changeCurrentPage(START));
     }
 
     const records2x2 = sizeFilter(TWO);

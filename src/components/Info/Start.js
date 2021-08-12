@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {CHANGE_CURRENT_PAGE, CREATE_USER, FOUR, GAME, SIX, TWO} from "../../store/constants/gameInfo";
+import {FOUR, GAME, SIX, TWO} from "../../store/constants/gameInfo";
 import TabButton from "../Tab/TabButton";
 import {useDispatch} from "react-redux";
-
+import {changeCurrentPage, createUser} from "../../store/actions/game";
 import './info.scss';
 
 const Start = () => {
@@ -11,11 +11,11 @@ const Start = () => {
     const dispatch = useDispatch();
 
     const toGame = () => {
-        dispatch({type: CHANGE_CURRENT_PAGE, payload: GAME})
+        dispatch(changeCurrentPage(GAME));
     }
 
     const saveUserInfo = () => {
-        dispatch({type: CREATE_USER, payload: {name: userName || 'anonymous', boardSize: +activeTab}})
+        dispatch(createUser({name: userName || 'anonymous', boardSize: +activeTab}));
     }
 
     const startGameHandler = () => {

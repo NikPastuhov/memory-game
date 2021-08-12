@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {ADD_TIME, CHANGE_TIMER_FIRST_START} from "../store/constants/gameInfo";
+import {addTime, timeFirstStart} from "../store/actions/game";
 
 const padWithZero = num => {
     const numStr = num.toString();
@@ -17,9 +18,7 @@ const Clock = ({cardsCounter}) => {
     const [storedTimer, setStoredTimer] = useState(null);
     const firstStart = useSelector(state => state.game.timerFirstStart);
 
-    const changeTimerFirstStart = (isFirst) => {
-        dispatch({type: CHANGE_TIMER_FIRST_START, payload: isFirst})
-    }
+    const changeTimerFirstStart = isFirst => dispatch(timeFirstStart(isFirst));
 
     const start = () => {
         if (storedTimer) {
@@ -40,7 +39,7 @@ const Clock = ({cardsCounter}) => {
     };
 
     const setTime = (seconds, minutes) => {
-        dispatch({type: ADD_TIME, payload: `${padWithZero(minutes)}:${padWithZero(seconds)} `})
+        dispatch(addTime(`${padWithZero(minutes)}:${padWithZero(seconds)}`))
     };
 
     useEffect(() => {

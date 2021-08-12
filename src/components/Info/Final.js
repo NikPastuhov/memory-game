@@ -1,27 +1,22 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {ADD_RECORD, CHANGE_CURRENT_PAGE, CHANGE_TIMER_FIRST_START, RECORDS, START} from "../../store/constants/gameInfo";
+import {RECORDS, START} from "../../store/constants/gameInfo";
+import {changeCurrentPage, timeFirstStart, addNewRecord} from "../../store/actions/game";
 
 const Final = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.game.user);
 
-    const changeTimerFirstStart = (isFirst) => {
-        dispatch({type: CHANGE_TIMER_FIRST_START, payload: isFirst})
-    }
+    const changeTimerFirstStart = isFirst => dispatch(timeFirstStart(isFirst));
 
     const toStartHandler = () => {
         changeTimerFirstStart(true);
-        dispatch({type: CHANGE_CURRENT_PAGE, payload: START})
+        dispatch(changeCurrentPage(START));
     }
 
-    const toRecordsHandler = () => {
-        dispatch({type: CHANGE_CURRENT_PAGE, payload: RECORDS})
-    }
+    const toRecordsHandler = () => dispatch(changeCurrentPage(RECORDS));
 
-    const addRecord = () => {
-        dispatch({type: ADD_RECORD, payload: user})
-    }
+    const addRecord = () => dispatch(addNewRecord(user));
 
     useEffect(() => {
         addRecord();
