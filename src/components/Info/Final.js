@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {RECORDS, START} from "../../store/constants/gameInfo";
+import {RECORDS, START, VICTORY} from "../../store/constants/gameInfo";
 import {changeCurrentPage, timeFirstStart, addNewRecord} from "../../store/actions/game";
+import playAudio from "../../helpers/playAudio";
 
 const Final = () => {
     const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const Final = () => {
 
     useEffect(() => {
         addRecord();
+        playAudio(VICTORY);
     }, [])
 
     return (

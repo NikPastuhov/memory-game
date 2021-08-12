@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import Tab from "../Tab/Tab";
-import {FOUR, SIX, START, TWO} from "../../store/constants/gameInfo";
+import {FOUR, GAME_RECORDS, SIX, START, TWO} from "../../store/constants/gameInfo";
 import TabButton from "../Tab/TabButton";
 import {changeCurrentPage, timeFirstStart} from "../../store/actions/game";
+import playAudio from "../../helpers/playAudio";
 
 const Records = () => {
     const dispatch = useDispatch();
@@ -26,6 +27,10 @@ const Records = () => {
     const records2x2 = sizeFilter(TWO);
     const records4x4 = sizeFilter(FOUR);
     const records6x6 = sizeFilter(SIX);
+
+    useEffect(() => {
+        playAudio(GAME_RECORDS);
+    }, [])
 
     return (
         <div className="game-container direction-column jc-space-between">

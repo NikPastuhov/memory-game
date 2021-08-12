@@ -12,3 +12,11 @@ export const ADD_TIME = 'ADD_TIME';
 export const ADD_RECORD = 'ADD_RECORD';
 export const CHANGE_CURRENT_PAGE = 'CHANGE_CURRENT_PAGE';
 export const CHANGE_TIMER_FIRST_START = 'CHANGE_TIMER_FIRST_START';
+
+export const VICTORY = 'VICTORY';
+export const START_GAME = 'START_GAME';
+export const GAME_RECORDS = 'GAME_RECORDS';
+
+
+
+

@@ -8,7 +8,7 @@ const Tab = ({isVisible, records}) => {
             { isVisible && (
                 records.map((record, index) => {
                     return (
-                        <div className="records-row">
+                        <div className="records-row" key={index}>
                             <div>{index+ 1 }</div>
                             <div>{record.name}</div>
                             <div>{record.time}</div>

@@ -1,8 +1,8 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import Cell from "./Cell";
 import getCurrentCards from "../../helpers/currentCards";
 import {useDispatch, useSelector} from "react-redux";
-import {FINAL, START} from "../../store/constants/gameInfo";
+import {FINAL, START, START_GAME} from "../../store/constants/gameInfo";
 import Clock from "../Timer";
 import {changeCurrentPage, timeFirstStart} from "../../store/actions/game";
 
