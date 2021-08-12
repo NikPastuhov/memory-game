@@ -1,0 +1,112 @@
+@import "common/variables";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: url("media/images/bg.jpg") center no-repeat $black-color;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  line-height: 1;
+  color: #c9c9c9;
+}
+
+h1{
+  color: $white-color;
+}
+
+button {
+  background: none;
+  color: $white-color;
+  font-size: 20px;
+  border: 2px solid $button-grey-border-color;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+
+  &.orange {
+    background-color: $orange-color;
+    border-color: $orange-color;
+  }
+
+  &.pink-orange {
+    background-color: $pink-orange-color;
+    border-color: $pink-orange-color;
+  }
+
+  &.big-button {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  &:active {
+    background-color: $orange-color;
+    border-color: $orange-color;
+  }
+}
+
+input[type=text] {
+  border: none;
+  background: none;
+  border-bottom: 2px solid $text-input-border-blue-color;
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: $text-white-color;
+  padding: 3px 5px;
+  text-align: center;
+  font-weight: bold;
+
+  &:focus{
+    outline: none;
+    border-bottom: 2px solid $text-input-border-dark-blue-color;
+  }
+}
+
+.game-container {
+  background: $black-with-opacity-color;
+  width: $game-normal-size;
+  height: $game-normal-size;
+  border-radius: 5px;
+  display: flex;
+  padding: 10px;
+
+  @media (max-width: $small-size) {
+    height: $game-mobile-size;
+    width: $game-mobile-size;
+  }
+
+  &.flex-center {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.direction-column {
+    flex-direction: column;
+  }
+
+  &.jc-space-between {
+    justify-content: space-between;
+  }
+}
+
+p {
+  text-align: right;
+  font-size: 50px;
+  color: $text-white-color;
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+p strong {
+  font-size: 14px;
+  color: $text-white-color;
+}
+
+

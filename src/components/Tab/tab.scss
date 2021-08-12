@@ -1,0 +1,39 @@
+.tab-buttons-box {
+  display: flex;
+
+  .tab-button {
+    flex-grow: 1;
+
+    .tab-button-text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.custom-radio {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.custom-radio+label {
+  display: flex;
+  align-items: center;
+  user-select: none;
+  padding: 10px 15px;
+  color: white;
+  font-size: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.custom-radio:checked+label {
+  background-color: #fda90f;
+  border-color: #fda90f;
+}
