@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import {FOUR, GAME, SIX, TWO} from "../../store/constants/gameInfo";
 import TabButton from "../Tab/TabButton";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {changeCurrentPage, createUser} from "../../store/actions/game";
 import './info.scss';
 
 const Start = () => {
-    const [userName, setUserName] = useState('')
+    const user = useSelector(state => state.game.user);
+    const [userName, setUserName] = useState(user.name);
     const [activeTab, setActiveTab] = useState('2')
     const dispatch = useDispatch();
 
